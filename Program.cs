@@ -14,8 +14,10 @@ namespace ConsoleApp6
             Values = values;
         }
     }
+    
     class Program
     {
+        
         static void Main(string[] args)
         {
             bool stopworking = false;
@@ -137,6 +139,7 @@ namespace ConsoleApp6
                 }
             }
         }
+        
         static Matrix CreateMatrix()
         {
             Write("Write the name of the new matrix: ");
@@ -192,6 +195,7 @@ namespace ConsoleApp6
             WriteLine($"Matrix {Name} is created!");
             return newMatrix;
         }
+        
         static Matrix Addition(Matrix a, Matrix b)
         {
             if ((a.Values.GetLength(0) == b.Values.GetLength(0)) && (a.Values.GetLength(1) == b.Values.GetLength(1)))
@@ -213,6 +217,7 @@ namespace ConsoleApp6
             }
 
         }
+        
         static Matrix Subtraction(Matrix a, Matrix b)
         {
             if ((a.Values.GetLength(0) == b.Values.GetLength(0)) && (a.Values.GetLength(1) == b.Values.GetLength(1)))
@@ -248,6 +253,7 @@ namespace ConsoleApp6
             Matrix scalarMultiplicatedMatrix = new Matrix($"{scalar}*{a.Name}", scalarMultiplicatedValues);
             return scalarMultiplicatedMatrix;
         }
+        
         static Matrix InverseMatrix(Matrix a)
         {
             double[,] inversedValues = new double[a.Values.GetLength(0), a.Values.GetLength(1)];
@@ -261,6 +267,7 @@ namespace ConsoleApp6
             Matrix inversedMatrix = new Matrix($"-{a.Name}", inversedValues);
             return inversedMatrix;
         }
+        
         static Matrix TransposeMatrix(Matrix a)
         {
             double[,] transposedValues = new double[a.Values.GetLength(1), a.Values.GetLength(0)];
@@ -274,6 +281,7 @@ namespace ConsoleApp6
             Matrix transposedMatrix = new Matrix($"({a.Name})T", transposedValues);
             return transposedMatrix;
         }
+        
         static bool IsMatrixOrthogonal(Matrix a)
         {
             if (a.Values.GetLength(0) == a.Values.GetLength(1))
@@ -295,9 +303,9 @@ namespace ConsoleApp6
             else
             {
                 return false;
-            }
-            
+            } 
         }
+        
         static bool IsMatrixIdentity(Matrix a)
         {
             for(int i=0;i<a.Values.GetLength(0);i++)
@@ -321,6 +329,7 @@ namespace ConsoleApp6
             }
             return true;
         }
+        
         static void ShowResultMatrix(Matrix a)
         {
             WriteLine("The result is...");
@@ -337,6 +346,7 @@ namespace ConsoleApp6
 
 
         }
+        
         static double MaximalValue(Matrix a)
         {
             double Maximal = double.MinValue;
@@ -352,6 +362,7 @@ namespace ConsoleApp6
             }
             return Maximal;
         }
+        
         static double MinimalValue(Matrix a)
         {
             double Minimal = double.MaxValue;
@@ -367,7 +378,5 @@ namespace ConsoleApp6
             }
             return Minimal;
         }
-
-
     }
 }
